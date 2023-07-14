@@ -60,6 +60,7 @@ def kirim_pesan(number, pesan):
 
         time.sleep(5)
         
+        # File yang akan dikirim, bisa 1 atau lebih
         image_paths = ["C:\\Users\\anand\\Downloads\\wa2.jpeg", "C:\\Users\\anand\\Downloads\\wa3.jpeg"] # contoh
 
         for x in range(len(image_paths)):
