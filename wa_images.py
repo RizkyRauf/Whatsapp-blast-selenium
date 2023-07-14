@@ -60,30 +60,34 @@ def kirim_pesan(number, pesan):
 
         time.sleep(5)
         
-        #klik tombol clip
-        clip_path = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div'
-        clip_button = wait.until(EC.presence_of_element_located((By.XPATH, clip_path)))
-        clip_button.click()
+        image_paths = ["C:\\Users\\anand\\Downloads\\wa2.jpeg", "C:\\Users\\anand\\Downloads\\wa3.jpeg"] # contoh
 
-        # Klik untuk lampirkan
-        lampirkan_path = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div'
-        lampirkan_button = wait.until(EC.presence_of_element_located((By.XPATH, lampirkan_path)))
-        lampirkan_button.click()
+        for x in range(len(image_paths)):
 
-        # Klik image untuk mengirimkan file foto
-        image_path = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/span/div/div/ul/li[1]/button/input'
-        image_button = wait.until(EC.presence_of_element_located((By.XPATH, image_path)))
-        image_button.send_keys("[path_to_file]")
+            # 1. klik tombol clip
+            clip_path = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div'
+            clip_button = wait.until(EC.presence_of_element_located((By.XPATH, clip_path)))
+            clip_button.click()
 
-        # images send
-        image_send_button_xpath = '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]/div/div'
-        image_send_button = wait.until(EC.presence_of_element_located((By.XPATH, image_send_button_xpath)))
-        image_send_button.click()
-        
-        print ("=============================================")
-        print("Berhasil mengirim foto kepada = {}".format(number))
-        print ("=============================================")
-        time.sleep(5)
+            # 2. Klik untuk lampirkan
+            lampirkan_path = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div'
+            lampirkan_button = wait.until(EC.presence_of_element_located((By.XPATH, lampirkan_path)))
+            lampirkan_button.click()
+
+            # 3. Attach multiple images
+            image_path = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/span/div/div/ul/li[1]/button/input'
+            image_button = wait.until(EC.presence_of_element_located((By.XPATH, image_path)))
+            image_button.send_keys(image_paths[x])
+
+            # 4. images send
+            image_send_button_xpath = '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]/div/div'
+            image_send_button = wait.until(EC.presence_of_element_located((By.XPATH, image_send_button_xpath)))
+            image_send_button.click()
+
+            print ("=============================================")
+            print("Berhasil mengirim foto kepada = {}".format(number))
+            print ("=============================================")
+            time.sleep(5)
 
         # Cek tanda centang ganda untuk memastikan pesan terkirim
         sent_tick_path = "//span[@data-testid='msg-dblcheck']"
