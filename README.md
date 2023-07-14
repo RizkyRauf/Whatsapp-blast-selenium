@@ -2,8 +2,7 @@
 
 ## requirement
 
-Untuk requirement bisa dilihat pada [``requirement.txt``](requirements.txt)
-
+1. Untuk requirement bisa dilihat pada [``requirement.txt``](requirements.txt)
 install package yang dibutuhkan dengan cara
 
 ```
